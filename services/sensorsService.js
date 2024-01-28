@@ -103,7 +103,7 @@ async function getSensor(sensor){
     });
 
   } catch (err) {
-    return({ message: err.message, status: err.status});
+    return({ message: "sensor not found", status: err.status});
   }
 }
 module.exports = { getSensors, postSensor, getSensor }

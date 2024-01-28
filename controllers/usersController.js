@@ -11,6 +11,7 @@ const deleteUserService = require('../services/userService').deleteUser;
  */
 const getUsers = async (req, res) => {
   const response = await getUsersService();
+  if (response.message) return res.status(response.status).send({ message: response.message });
   res.send(response);
 };
 /**
@@ -20,6 +21,7 @@ const getUsers = async (req, res) => {
  */
 const getUser = async (req, res) => {
   const response = await getUserService();
+  if (response.message) return res.status(response.status).send({ message: response.message });
   res.send(response)
 };
 /**
@@ -29,6 +31,7 @@ const getUser = async (req, res) => {
  */
 const postUser = async (req, res) => {
   const response = await postUserService(req);
+  if (response.message) return res.status(response.status).send({ message: response.message });
   res.send(response);
  };
 /**
@@ -38,6 +41,7 @@ const postUser = async (req, res) => {
  */
 const updateUser = async (req, res) => {
   const response = await updateUserService(req);
+  if (response.message) return res.status(response.status).send({ message: response.message });
   res.send(response);
 };
 /**
@@ -47,6 +51,7 @@ const updateUser = async (req, res) => {
  */
 const deleteUser = async (req, res) => {
   const response = await deleteUserService(req);
+  if (response.message) return res.status(response.status).send({ message: response.message });
   res.send(response);
 };
 

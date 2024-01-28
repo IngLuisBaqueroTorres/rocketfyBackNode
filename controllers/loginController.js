@@ -11,13 +11,13 @@ const postLoginUser = async (req, res) => {
 
     const user = await usersModel.findOne({ nickName });
 
-    if (!user) return res.status(401).send({ message: 'someting went wrong1' });
+    if (!user) return res.status(401).send({ message: 'something went wrong' });
 
     //const isMatch = await bcrypt.compare(password, user.password);
 
     const isMatch = password == user.password;
 
-    if (!isMatch) return res.status(401).send({ message: 'something went wrong2' });
+    if (!isMatch) return res.status(401).send({ message: 'something went wrong' });
 
     return res.status(200).send({ message: isMatch });
 
